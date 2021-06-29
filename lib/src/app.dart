@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_agnostic/flutter_agnostic.dart'
+    show FlutterAgnosticOptions;
 
+/// Provides a wrapper around the underlying [MaterialApp] and [CupertinoApp] widget.
 class AgnosticApp extends StatelessWidget {
   /// The [MaterialApp] or [CupertinoApp] returned by the build function.
   late final Widget _widget;
@@ -78,7 +81,10 @@ class AgnosticApp extends StatelessWidget {
           actions: actions,
           restorationScopeId: restorationScopeId,
           scrollBehavior: scrollBehavior);
-    } else if (Platform.isIOS) {
+    } else if (Platform.isIOS ||
+        Platform.isMacOS ||
+        (Platform.isLinux && FlutterAgnosticOptions.useCupertinoLinux) ||
+        (Platform.isWindows && FlutterAgnosticOptions.useCupertinoWindows)) {
       _widget = CupertinoApp(
           key: key,
           navigatorKey: navigatorKey,
@@ -210,8 +216,7 @@ class AgnosticApp extends StatelessWidget {
           routerDelegate: routerDelegate,
           routeInformationProvider: routeInformationProvider);
     } else {
-      throw Exception(
-          'flutter_agnostic is currently only intended for phone applicaitons');
+      throw Exception('Your platform is not supported');
     }
   }
 

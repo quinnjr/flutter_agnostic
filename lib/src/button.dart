@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_agnostic/flutter_agnostic.dart'
+    show FlutterAgnosticOptions;
 
+/// Provides a wrapper around the underlying [ElevatedButton] and [CupertinoButton] widget.
 class AgnosticButton extends StatelessWidget {
   /// The [ElevatedButton] or [CupertinoButton] to be returned by the build function.
   late final Widget _widget;
@@ -24,7 +27,10 @@ class AgnosticButton extends StatelessWidget {
       AlignmentGeometry alignment = Alignment.center,
       required Widget child})
       : super(key: key) {
-    if (Platform.isAndroid) {
+    if (Platform.isAndroid ||
+        Platform.isFuchsia ||
+        (Platform.isLinux && !FlutterAgnosticOptions.useCupertinoLinux) ||
+        (Platform.isWindows && !FlutterAgnosticOptions.useCupertinoWindows)) {
       _widget = ElevatedButton(
           key: key,
           onPressed: onPressed,
@@ -33,7 +39,10 @@ class AgnosticButton extends StatelessWidget {
           autofocus: autofocus,
           clipBehavior: clibBehavior,
           child: child);
-    } else if (Platform.isIOS) {
+    } else if (Platform.isIOS ||
+        Platform.isMacOS ||
+        (Platform.isLinux && FlutterAgnosticOptions.useCupertinoLinux) ||
+        (Platform.isWindows && FlutterAgnosticOptions.useCupertinoWindows)) {
       _widget = CupertinoButton(
           key: key,
           onPressed: onPressed,
@@ -46,8 +55,7 @@ class AgnosticButton extends StatelessWidget {
           alignment: alignment,
           child: child);
     } else {
-      throw Exception(
-          'flutter_agnostic is currently only intended for phone applicaitons');
+      throw Exception('Your platform is not supported');
     }
   }
 
