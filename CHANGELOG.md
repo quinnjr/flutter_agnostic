@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+* Added `isMaterial` and `isCupertino` static methods to FlutterAgnosticOptions.
+* Added AgnosticAlertDialog for [AlertDialog](https://api.flutter.dev/flutter/material/AlertDialog-class.html) and [CupertinoAlertDialog](https://api.flutter.dev/flutter/cupertino/CupertinoAlertDialog-class.html).
+* Added partial implementation of AgnosticDialog for [SimpleDialog](https://api.flutter.dev/flutter/material/SimpleDialog-class.html) and (missing) [CupertinoDialog](https://api.flutter.dev/flutter/cupertino/CupertinoDialog-class.html).
+* Added empty files for planned widgets: AgnosticTopBar, AgnosticProgressIndicator, AgnosticSlider, AgnosticSwitch, and AgnosticTabBar.
+
 ## 0.2.1
 
 * Corrected file name of example.

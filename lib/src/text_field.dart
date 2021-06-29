@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -35,8 +34,9 @@ const BoxDecoration _kDefaultRoundedBorderDecoration = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(5.0)),
 );
 
-/// Provides a wrapper around the underlying [TextField] and [CupertinoTextField] widget.
+/// Provides a wrapper around the underlying [TextField] and [CupertinoTextField] widgets.
 class AgnosticTextField extends StatelessWidget {
+  /// The [TextField] or [CupertinoTextField] returned by the build function.
   late final Widget _widget;
   AgnosticTextField({
     Key? key,
@@ -137,10 +137,7 @@ class AgnosticTextField extends StatelessWidget {
                 selectAll: true,
                 paste: true,
               ));
-    if (Platform.isAndroid ||
-        Platform.isFuchsia ||
-        (Platform.isLinux && !FlutterAgnosticOptions.useCupertinoLinux) ||
-        (Platform.isWindows && !FlutterAgnosticOptions.useCupertinoWindows)) {
+    if (FlutterAgnosticOptions.isMaterial()) {
       _widget = TextField(
           key: key,
           controller: controller,
@@ -193,10 +190,7 @@ class AgnosticTextField extends StatelessWidget {
           scrollController: scrollController,
           autofillHints: autofillHints,
           restorationId: restorationId);
-    } else if (Platform.isIOS ||
-        Platform.isMacOS ||
-        (Platform.isLinux && FlutterAgnosticOptions.useCupertinoLinux) ||
-        (Platform.isWindows && FlutterAgnosticOptions.useCupertinoWindows)) {
+    } else if (FlutterAgnosticOptions.isCupertino()) {
       cursorRadius ??= Radius.circular(2.0);
       padding ??= const EdgeInsets.all(6.0);
 

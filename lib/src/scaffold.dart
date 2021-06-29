@@ -1,12 +1,10 @@
-import 'dart:core';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_agnostic/flutter_agnostic.dart'
     show FlutterAgnosticOptions;
 
-/// Provides a wrapper around underlying [Scaffold] and [CuptertinoPageScaffold] widget.
+/// Provides a wrapper around underlying [Scaffold] and [CuptertinoPageScaffold] widgets.
 class AgnosticScaffold extends StatelessWidget {
   /// The [Scaffold] or [CupertinoPageScaffold] returned by the build function.
   late final Widget _widget;
@@ -37,10 +35,7 @@ class AgnosticScaffold extends StatelessWidget {
       ObstructingPreferredSizeWidget? navigationBar,
       required Widget child})
       : super(key: key) {
-    if (Platform.isAndroid ||
-        Platform.isFuchsia ||
-        (Platform.isLinux && !FlutterAgnosticOptions.useCupertinoLinux) ||
-        (Platform.isWindows && !FlutterAgnosticOptions.useCupertinoWindows)) {
+    if (FlutterAgnosticOptions.isMaterial()) {
       _widget = Scaffold(
           key: key,
           appBar: appBar,
@@ -64,10 +59,7 @@ class AgnosticScaffold extends StatelessWidget {
           drawerEnableOpenDragGesture: drawerEnableOpenDragGesture,
           endDrawerEnableOpenDragGesture: endDrawerEnableOpenDragGesture,
           body: child);
-    } else if (Platform.isIOS ||
-        Platform.isMacOS ||
-        (Platform.isLinux && FlutterAgnosticOptions.useCupertinoLinux) ||
-        (Platform.isWindows && FlutterAgnosticOptions.useCupertinoWindows)) {
+    } else if (FlutterAgnosticOptions.isCupertino()) {
       _widget = CupertinoPageScaffold(
           navigationBar: navigationBar,
           backgroundColor: cupertinoBackgroundColor,
