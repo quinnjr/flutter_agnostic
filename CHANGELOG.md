@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+* Added AgnosticTextField for [TextField](https://api.flutter.dev/flutter/material/TextField-class.html) and [CupertinoTextField](https://api.flutter.dev/flutter/cupertino/CupertinoTextField-class.html).
+
 ## 0.1.0
 
 * Added AgnosticApp for [MaterialApp](https://api.flutter.dev/flutter/material/MaterialApp-class.html) and [CuptertinoApp](https://api.flutter.dev/flutter/cupertino/CupertinoApp-class.html).
