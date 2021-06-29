@@ -27,4 +27,4 @@ A Flutter package designed to make styling for applications easier to manage bet
 | AgnosticSliverBar | [SliverAppBar](https://api.flutter.dev/flutter/material/SliverAppBar-class.html) | [CupertinoSliverNavigationBar](https://api.flutter.dev/flutter/cupertino/CupertinoSliverNavigationBar-class.html) |
 | AgnosticTabBar | [TabBar](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html) | [CuptertinoTabBar](https://api.flutter.dev/flutter/cupertino/CupertinoTabBar-class.html) |
 | AgnosticSlider | [Slider](https://api.flutter.dev/flutter/material/Slider-class.html) | [CupertinoSlider](https://api.flutter.dev/flutter/cupertino/CupertinoSlider-class.html)
-| AgnosticSwitch | [Switch](https://api.flutter.dev/flutter/material/Switch-class.html) | [CupertioSwitch](https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html)
+| AgnosticSwitch | [Switch](https://api.flutter.dev/flutter/material/Switch-class.html) | [CupertioSwitch](https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html) |
