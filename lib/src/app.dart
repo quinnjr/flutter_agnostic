@@ -1,10 +1,9 @@
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_agnostic/flutter_agnostic.dart'
     show FlutterAgnosticOptions;
 
-/// Provides a wrapper around the underlying [MaterialApp] and [CupertinoApp] widget.
+/// Provides a wrapper around the underlying [MaterialApp] and [CupertinoApp] widgets.
 class AgnosticApp extends StatelessWidget {
   /// The [MaterialApp] or [CupertinoApp] returned by the build function.
   late final Widget _widget;
@@ -47,7 +46,7 @@ class AgnosticApp extends StatelessWidget {
       String? restorationScopeId,
       ScrollBehavior? scrollBehavior})
       : super(key: key) {
-    if (Platform.isAndroid) {
+    if (FlutterAgnosticOptions.isMaterial()) {
       _widget = MaterialApp(
           key: key,
           navigatorKey: navigatorKey,
@@ -81,10 +80,7 @@ class AgnosticApp extends StatelessWidget {
           actions: actions,
           restorationScopeId: restorationScopeId,
           scrollBehavior: scrollBehavior);
-    } else if (Platform.isIOS ||
-        Platform.isMacOS ||
-        (Platform.isLinux && FlutterAgnosticOptions.useCupertinoLinux) ||
-        (Platform.isWindows && FlutterAgnosticOptions.useCupertinoWindows)) {
+    } else if (FlutterAgnosticOptions.isCupertino()) {
       _widget = CupertinoApp(
           key: key,
           navigatorKey: navigatorKey,
@@ -162,7 +158,7 @@ class AgnosticApp extends StatelessWidget {
       RouteInformationProvider? routeInformationProvider,
       BackButtonDispatcher? backButtonDispatcher})
       : super(key: key) {
-    if (Platform.isAndroid) {
+    if (FlutterAgnosticOptions.isMaterial()) {
       _widget = MaterialApp.router(
           key: key,
           scaffoldMessengerKey: scaffoldMessengerKey,
@@ -190,7 +186,7 @@ class AgnosticApp extends StatelessWidget {
           routeInformationParser: routeInformationParser,
           routerDelegate: routerDelegate,
           routeInformationProvider: routeInformationProvider);
-    } else if (Platform.isIOS) {
+    } else if (FlutterAgnosticOptions.isCupertino()) {
       _widget = CupertinoApp.router(
           backButtonDispatcher: backButtonDispatcher,
           theme: cupertinoTheme,
