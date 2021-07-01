@@ -5,8 +5,13 @@ import 'dart:io';
 export 'src/alert_dialog.dart';
 export 'src/app.dart';
 export 'src/button.dart';
+export 'src/progress_indicator.dart';
 export 'src/scaffold.dart';
+export 'src/slider.dart';
+export 'src/switch.dart';
+export 'src/tab_bar.dart';
 export 'src/text_field.dart';
+export 'src/top_bar.dart';
 
 /// Static class to hold package configuration options.
 ///
