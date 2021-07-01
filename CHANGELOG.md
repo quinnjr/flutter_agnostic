@@ -2,8 +2,8 @@
 
 ## 0.4.0
 
-* Added AgnositcProgressIndicator.
-* 
+* Added AgnosticProgressIndicator.
+* Added AgnosticTabBar.
 
 ## 0.3.0
 
