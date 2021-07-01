@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+* Added AgnositcProgressIndicator.
+* 
+
 ## 0.3.0
 
 * Added `isMaterial` and `isCupertino` static methods to FlutterAgnosticOptions.
