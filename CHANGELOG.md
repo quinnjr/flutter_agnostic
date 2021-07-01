@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+* Fixed missing exports
+
 ## 0.4.0
 
 * Added AgnosticProgressIndicator.
