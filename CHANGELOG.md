@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2
+
+* Removed AgnosticTopBar from planned widgets due to current Widget inheritance.
+
+## 0.4.1
+
+* Fixed missing exports
+
 ## 0.4.0
 
 * Added AgnosticProgressIndicator.
