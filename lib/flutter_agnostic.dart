@@ -11,7 +11,6 @@ export 'src/slider.dart';
 export 'src/switch.dart';
 export 'src/tab_bar.dart';
 export 'src/text_field.dart';
-export 'src/top_bar.dart';
 
 /// Static class to hold package configuration options.
 ///

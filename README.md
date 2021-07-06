@@ -24,7 +24,5 @@ A Flutter package designed to make styling for applications easier to manage bet
 
 | Agnostic Widget | Material Widget | Cupertino Widget |
 |----|----|----|
-| AgnosticAppBar | [AppBar](https://api.flutter.dev/flutter/material/AppBar-class.html) | [CupertinoNavigationBar](https://api.flutter.dev/flutter/cupertino/CupertinoNavigationBar-class.html) |
-| AgnosticSliverBar | [SliverAppBar](https://api.flutter.dev/flutter/material/SliverAppBar-class.html) | [CupertinoSliverNavigationBar](https://api.flutter.dev/flutter/cupertino/CupertinoSliverNavigationBar-class.html) |
 | AgnosticSlider | [Slider](https://api.flutter.dev/flutter/material/Slider-class.html) | [CupertinoSlider](https://api.flutter.dev/flutter/cupertino/CupertinoSlider-class.html) |
 | AgnosticSwitch | [Switch](https://api.flutter.dev/flutter/material/Switch-class.html) | [CupertioSwitch](https://api.flutter.dev/flutter/cupertino/CupertinoSwitch-class.html) |
